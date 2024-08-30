@@ -32,21 +32,17 @@ except ImportError:
 # Map the LoC query indexes to service types
 default_query = {
     "id": "LoC",
-    "name": "LCNAF & LCSH",
-    "index": "/authorities"
+    "name": "LCDGT",
+    "index": "/authorities/demographicTerms"
 }
 
 refine_to_lc = [
     {
-        "id": "Names",
-        "name": "Library of Congress Name Authority File",
-        "index": "/authorities/names"
+        "id": "DemographicTerms",
+        "name": "Library of Congress Demographic Group Terms",
+        "index": "/authorities/demographicTerms"
     },
-    {
-        "id": "Subjects",
-        "name": "Library of Congress Subject Headings",
-        "index": "/authorities/subjects"
-    }
+    
 ]
 refine_to_lc.append(default_query)
 
@@ -55,7 +51,7 @@ query_types = [{'id': item['id'], 'name': item['name']} for item in refine_to_lc
 
 # Basic service metadata.
 metadata = {
-    "name": "LoC Reconciliation Service",
+    "name": "LoC Demographic Group Terms Reconciliation Service",
     "defaultTypes": query_types,
     "identifierSpace" : "http://localhost/identifier",
     "schemaSpace" : "http://localhost/schema",
